@@ -8,7 +8,7 @@
   "scripts": {
     "db:migrate": "prisma migrate dev",
     "db:populate": "node -r ts-node/register src/scripts/db-populate.ts",
-    "dev": "node -r ts-node/register src/server.ts",
+    "dev": "nodemon src/server.ts",
     "test": "mocha -r ts-node/register src/test/app.test.ts",
     "build": "tsc",
     "start": "node --enable-source-maps dist/server.js"
@@ -33,6 +33,16 @@
     "chai": "^4.3.8",
     "chai-http": "^4.4.0",
     "mocha": "^10.2.0",
+    "nodemon": "^3.0.1",
     "ts-node": "^10.9.1"
+  },
+  "nodemonConfig": {
+      "delay": 1500,
+      "watch": [
+          "src"
+      ],
+      "ignore": [
+          "src/scripts"
+      ]
   }
 }
