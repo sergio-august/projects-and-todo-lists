@@ -24,10 +24,10 @@ model Project {
 }
 
 model Task {
-  id           Int       @id @default(autoincrement())
-  description  String
-  createdAt DateTime  @default(now()) @map("creationDate")
-  finishedAt      DateTime?
-  projectId    Int
-  project      Project   @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  id          Int       @id @default(autoincrement())
+  description String
+  createdAt   DateTime  @default(now())
+  finishedAt  DateTime?
+  projectId   Int
+  project     Project   @relation(fields: [projectId], references: [id], onDelete: Cascade)
 }
